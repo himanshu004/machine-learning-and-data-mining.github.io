@@ -6,6 +6,14 @@ go :-   write('Enter the first number:'),
         write('The product is: '),write(R).
 
 
-        prod(A,B,R):-R is A * B.
+    mult(X, 0, 0).
+    mult(X, Y, R):- Y1 is Y - 1,
+                    mult(X, Y1, R1),
+                    R is R1 + X.
+    prod(X, Y, R):- Y < 0,
+                    Y1 is -1 * Y,
+                    mult(X, Y1, R1),
+                    R is -1 * R1;
+                    mult(X, Y, R).
 
 :-initialization(go).
