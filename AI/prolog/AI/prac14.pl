@@ -1,11 +1,11 @@
 go :-   write('Enter the List(-1 to end)'),nl,
         createList(L),
-        write('List: '),
+        write('List you entered is: '),
         printList(L),nl,
-        write('Enter the element to be searched for:'),
-        read(X),
-        is_member(X,L),write('Yes,it is a member');
-        write('Not a member').
+        write('Sum of the list is : '),nl,
+        list_sum(L,R),
+        write(R).
+        
 
         enterElement(X):- write('Enter element: '),
                           read(X).
@@ -20,8 +20,7 @@ go :-   write('Enter the List(-1 to end)'),nl,
         printList([X|Y]):-  write(X),
                             write(' '),
                             printList(Y).
-
-        is_member(H,[H|_]):- !
-        is_member(H,[_|T]):- is_member(H,T).
-
-:-initialization(go).           
+            
+        list_sum([],0):- !.
+        list_sum([H|T],R):- list_sum(T,X),
+                            R is H + X.  

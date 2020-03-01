@@ -2,13 +2,12 @@ go :-   write('Enter the List(-1 to end)'),nl,
         createList(L),
         write('List: '),
         printList(L),nl,
-        write('Enter the element to be searched for:'),
-        read(X),
-        is_member(X,L),write('Yes,it is a member');
-        write('Not a member').
+        write('The reversed list is: '),
+        my_reverse(L,RL),
+        printList(RL).
 
         enterElement(X):- write('Enter element: '),
-                          read(X).
+                  read(X).
 
         createList(L):- enterElement(X),
                         createListHelper(X, L).
@@ -18,10 +17,11 @@ go :-   write('Enter the List(-1 to end)'),nl,
 
         printList([]):- !.
         printList([X|Y]):-  write(X),
-                            write(' '),
-                            printList(Y).
+                    write(' '),
+                    printList(Y).
 
-        is_member(H,[H|_]):- !
-        is_member(H,[_|T]):- is_member(H,T).
+        reverseHelper([], A, A):- !.
+        reverseHelper([X|Y], R, A):- reverseHelper(Y, R, [X|A]).
+        my_reverse(L, R):- reverseHelper(L, R, []).
 
-:-initialization(go).           
+:- initialization(go).
