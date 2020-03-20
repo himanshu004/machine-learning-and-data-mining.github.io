@@ -25,8 +25,10 @@ printList([X|Y]):-  write(X),
                     printList(Y).
 
 conc([], L2, L2).
-conc([X|T2], L2, [X|T1]):- conc(T1, L2, T2).
+conc([H|T1], L2, [H|T2]):- conc(T1, L2, T2).
 
 insert_nth(I, 1, L, R):- conc([I], L, R), !.
-insert_nth(I, N, [X|T1], [X|T2]):- N1 is N - 1,
+insert_nth(I, N, [_|T1], [_|T2]):- N1 is N - 1,
                                  insert_nth(I, N1, T1, T2).
+
+:- initialization(go).

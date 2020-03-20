@@ -2,9 +2,9 @@ go:- write('Enter List(-1 to end)'),nl,
     createList(L),
     write('List: '),
     printList(L),nl,
-    print("Enter the value of n:"),nl,
+    print("Enter the element to be deleted:"),nl,
     read(N),nl,
-    delete_nth(N,L,R),
+    delete_all(N,L,R),
     write('The new list is: '),
     printList(R), nl.
 
@@ -22,8 +22,8 @@ printList([X|Y]):-  write(X),
                     write(' '),
                     printList(Y).
 
-delete_nth(1,[H|T],T):- !.
-delete_nth(N,[X|Y],[X|Z]):- N1 is N - 1,
-                            delete_nth(N1,Y,Z).
+delete_all(X, [], []).
+delete_all(X, [H|T], Z):-  X = H, delete_all(X, T, Z), !.
+delete_all(X, [H|T], [H|Z]):- X \= H, delete_all(X, T, Z).
 
 :- initialization(go).
