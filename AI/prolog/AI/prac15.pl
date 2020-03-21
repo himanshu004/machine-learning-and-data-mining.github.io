@@ -4,7 +4,7 @@ go:- write('Enter List(-1 to specify end)'),
     write('List: '),
     printList(L),
     nl,
-    oddLEngth(L),
+    oddlength(L),
     write('The list is of odd length');
     write('The list is of even length').
 

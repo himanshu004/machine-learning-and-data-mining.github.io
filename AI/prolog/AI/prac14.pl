@@ -2,7 +2,7 @@ go :-   write('Enter the List(-1 to end)'),nl,
         createList(L),
         write('List you entered is: '),
         printList(L),nl,
-        write('Sum of the list is : '),nl,
+        write('Sum of the list is : '),
         list_sum(L,R),
         write(R).
         
@@ -24,3 +24,5 @@ go :-   write('Enter the List(-1 to end)'),nl,
         list_sum([],0):- !.
         list_sum([H|T],R):- list_sum(T,X),
                             R is H + X.  
+
+:-initialization(go).

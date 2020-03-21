@@ -25,4 +25,10 @@ printList([X|Y]):-  write(X),
 is_member(X, [X|_]).
 is_member(X, [_|Y]):- is_member(X, Y).
 
+remove_dup([], []).
+remove_dup([X|Y], R):- is_member(X, Y),
+                       remove_dup(Y, R).
+remove_dup([X|Y], [X|R]):- \+is_member(X, Y),
+                            remove_dup(Y, R).
+
 :- initialization(go).

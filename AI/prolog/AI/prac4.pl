@@ -4,8 +4,8 @@ go :-   write('Enter the number:'),
         write('The n-th Fibonacci term is: '),write(R).
 
 
-        generate_fib(0,0).
-        generate_fib(0,1).
+        generate_fib(0,0):- !.
+        generate_fib(1,1):- !.
     
         generate_fib(N,X):- N1 is N - 1,
 					generate_fib(N1,X1),

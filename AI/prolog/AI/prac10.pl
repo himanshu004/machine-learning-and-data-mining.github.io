@@ -21,7 +21,7 @@ go :-   write('Enter the List(-1 to end)'),nl,
                             write(' '),
                             printList(Y).
 
-        is_member(H,[H|_]):- !
+        is_member(H,[H|_]):- !.
         is_member(H,[_|T]):- is_member(H,T).
 
 :-initialization(go).           
