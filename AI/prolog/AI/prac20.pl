@@ -2,11 +2,11 @@ go:- write('Enter List(-1 to end)'),nl,
     createList(L),
     write('List: '),
     printList(L),nl,
-    print("Enter the list to be checked:"),nl,
-    createList(S),nl,
+    write('Enter the list to be checked'),
+    createList(S),
     subList(S,L),
     write('Yes'),nl;
-    write("No").
+    write('No').
 
 enterElement(X):- write('Enter the new element: '),
                   read(X).
@@ -26,5 +26,6 @@ conc([], L2, L2).
 conc([X|T1], L2, [X|T2]):- conc(T1, L2, T2).
 
 subList(S, L):- conc(L1, L2, L),
-                subList(S, L3, L2).
+                conc(S, L3, L2).
+
 :- initialization(go).

@@ -1,9 +1,9 @@
 go:- write('Enter the Tree : '), 
     read(T), nl, 
 	write('The Pre-order traversal is  : '),
-	preorder(T,R1), write(R1),nl.
+	preorder(T,R1), write(R1),nl,
     write('The In-order traversal is  : '),
-	inorder(T,R2), write(R2),nl.
+	inorder(T,R2), write(R2),nl,
     write('The Post-order traversal is  : '),
 	postorder(T,R3), write(R3),nl.
 	
@@ -28,3 +28,5 @@ postorder(tr(LEFT,R,RIGHT),L):-
                  postorder(LEFT,LT), postorder(RIGHT,RT),
 				 append(LT,RT,Temp),
 				 append(Temp,[R],L),!.
+
+:- initialization(go).

@@ -2,6 +2,8 @@ go:- write('Enter List(-1 to end)'),nl,
     createList(L),
     write('List: '),
     printList(L),nl,
+    write('Enter the list to be checked: '),
+    createList(S),
     is_subsequence(S,L),
     write('Yes, it is a subsequence'),nl;
     write('Not a subsequence').
